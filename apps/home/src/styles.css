@@ -270,3 +270,18 @@ footer {
     justify-content: flex-end;
   }
 }
+
+.encoding-table {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.encoding-table th,
+.encoding-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #dfd4c3;
+}
+.encoding-table th {
+  background: #eee7dc;
+}

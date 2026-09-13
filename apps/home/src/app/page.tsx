@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { absoluteUrl } from '../lib/site';
+
+export const metadata: Metadata = {
+  alternates: { canonical: absoluteUrl('/') },
+};
 
 export default function App() {
   return (

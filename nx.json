@@ -24,7 +24,16 @@
     "build": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "env": "SITE_URL"
+        },
+        {
+          "env": "GOOGLE_SITE_VERIFICATION"
+        }
+      ]
     },
     "lint": {
       "cache": true

@@ -87,3 +87,14 @@ Node 서버는 개발·빌드 때만 필요합니다. 미리보기는 `next star
 
 Nx 간접 의존성 `smol-toml`은 [TOML 파싱 취약점](https://github.com/advisories/GHSA-7w5x-hrqm-74c2)이 수정된 1.7.1로 override했습니다.
 Nx가 수정 버전을 직접 사용하게 되면 제거할 수 있습니다.
+
+## 검색 엔진 설정
+
+DigitalOcean App Platform의 **Build Time** 환경변수로 `SITE_URL`에 실제 배포 origin을 설정하세요(예: `https://your-domain.com`, 경로 없이).
+설정 후 재빌드하면 각 페이지의 canonical, URL 디코더 OG URL, `/sitemap.xml`, `/robots.txt`의 sitemap 주소가 생성됩니다.
+도메인이 미정이면 canonical과 sitemap URL을 출력하지 않으며, sitemap은 빈 목록입니다. 배포 시 실제 주소를 반드시 설정하세요.
+Nx 빌드 캐시에 SITE_URL과 GOOGLE_SITE_VERIFICATION을 반영하므로 주소 변경 후 이전 SEO 결과가 재사용되지 않습니다.
+
+Google Search Console의 URL 접두어 속성을 사용할 경우 HTML 태그 인증 코드의 content 값만 `GOOGLE_SITE_VERIFICATION` 빌드 환경변수에 넣으세요.
+DNS 인증을 선택했다면 이 변수는 필요 없습니다. 인증 후 sitemap.xml을 제출하고 URL 검사에서 `/tools/url-decoder/`의 색인 상태를 확인하세요.
+공식 도메인 변경 시 환경변수를 바꾸고 재배포하며, 이전 주소의 리디렉션은 호스팅에서 따로 설정합니다.

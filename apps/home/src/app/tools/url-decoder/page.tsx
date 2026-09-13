@@ -1,14 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Decoder from './decoder';
+import { absoluteUrl } from '../../../lib/site';
 
-const title = 'URL 디코더 · 인코더';
+const title = 'URL 디코더 · 인코더 — 한글 URL 디코딩';
+const pageUrl = absoluteUrl('/tools/url-decoder/');
 const description =
-  '퍼센트 인코딩된 URL을 읽기 쉬운 한글과 텍스트로 변환하세요. UTF-8 URL 디코딩과 인코딩을 브라우저에서 바로 처리합니다.';
+  '한글 URL 디코딩과 인코딩을 무료로 처리하세요. UTF-8 퍼센트 인코딩 변환, + 공백 처리, 결과 복사를 지원하며 입력값을 서버로 전송하지 않습니다.';
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: pageUrl },
+  twitter: { card: 'summary', title, description },
   openGraph: {
+    url: pageUrl,
     title,
     description,
     locale: 'ko_KR',
@@ -24,20 +29,70 @@ export default function UrlDecoderPage() {
         🥖 Happy Bagguete
       </Link>
       <header className="tool-header">
-        <p className="eyebrow">001</p>
+        <p className="eyebrow">URL Decoder / Encoder</p>
         <h1>
           URL 디코더<span className="heading-dot">.</span>
         </h1>
         <p>
-          복잡한 URL을 읽기 쉽게.
+          퍼센트 인코딩된 URL을 한글과 텍스트로 변환하세요.
           <br />
-          붙여넣으면 바로 변환해드릴게요.
+          무료 URL 디코딩·인코딩을 브라우저에서 바로 처리합니다.
         </p>
       </header>
       <Decoder />
+      <section className="guide" aria-labelledby="usage-title">
+        <h2 id="usage-title">URL 디코더 사용 방법</h2>
+        <ol>
+          <li>변환할 URL이나 문자열을 입력창에 붙여넣으세요.</li>
+          <li>디코딩 또는 인코딩을 선택하세요. 입력 즉시 결과가 표시됩니다.</li>
+          <li>폼·쿼리 값의 +를 공백으로 바꿔야 한다면 해당 옵션을 켜세요.</li>
+          <li>결과 복사를 눌러 변환한 문자열을 사용하세요.</li>
+        </ol>
+        <h3>자주 사용하는 URL 인코딩 예시</h3>
+        <table className="encoding-table">
+          <thead>
+            <tr>
+              <th scope="col">문자</th>
+              <th scope="col">인코딩된 값</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>공백</td>
+              <td>
+                <code>%20</code>
+              </td>
+            </tr>
+            <tr>
+              <td>+</td>
+              <td>
+                <code>%2B</code>
+              </td>
+            </tr>
+            <tr>
+              <td>&amp;</td>
+              <td>
+                <code>%26</code>
+              </td>
+            </tr>
+            <tr>
+              <td>/</td>
+              <td>
+                <code>%2F</code>
+              </td>
+            </tr>
+            <tr>
+              <td>안녕</td>
+              <td>
+                <code>%EC%95%88%EB%85%95</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <section className="guide" aria-labelledby="guide-title">
         <p className="eyebrow">HOW TO</p>
-        <h2 id="guide-title">URL 속에 숨은 글자를 꺼내보세요.</h2>
+        <h2 id="guide-title">URL 디코딩이란?</h2>
         <p>
           URL 디코딩은 <code>%EC%95%88%EB%85%95</code>처럼 퍼센트 기호로 표현된
           문자를 <strong>안녕</strong>처럼 읽을 수 있는 텍스트로 바꾸는
