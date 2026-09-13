@@ -3,3 +3,7 @@ dist
 .nx
 coverage
 package-lock.json
+
+.next/
+out/
+next-env.d.ts

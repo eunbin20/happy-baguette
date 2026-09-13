@@ -10,8 +10,42 @@
       "scope:home"
     ],
     "targets": {
+      "build": {
+        "command": "next build",
+        "options": {
+          "cwd": "apps/home"
+        },
+        "outputs": [
+          "{projectRoot}/out",
+          "{projectRoot}/.next"
+        ]
+      },
+      "dev": {
+        "command": "next dev --port 4200",
+        "options": {
+          "cwd": "apps/home"
+        },
+        "continuous": true,
+        "cache": false
+      },
+      "preview": {
+        "command": "http-server apps/home/out -p 4300 -c-1",
+        "dependsOn": [
+          "build"
+        ],
+        "continuous": true,
+        "cache": false
+      },
       "typecheck": {
-        "command": "tsc --noEmit -p apps/home/tsconfig.json"
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "next typegen",
+            "tsc --noEmit -p tsconfig.json"
+          ],
+          "cwd": "apps/home",
+          "parallel": false
+        }
       }
     }
   }

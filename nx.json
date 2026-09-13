@@ -5,7 +5,14 @@
     "libsDir": "libs"
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals",
+      "!{projectRoot}/.next/**/*",
+      "!{projectRoot}/out/**/*",
+      "!{projectRoot}/**/*.tsbuildinfo",
+      "!{projectRoot}/next-env.d.ts"
+    ],
     "production": ["default", "!{projectRoot}/**/*.spec.tsx"],
     "sharedGlobals": [
       "{workspaceRoot}/tsconfig.base.json",
