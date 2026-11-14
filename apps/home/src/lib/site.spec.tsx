@@ -18,12 +18,16 @@ it('uses the production origin consistently for canonical, robots and sitemap', 
   const { absoluteUrl } = await import('./site');
   const { default: sitemap } = await import('../app/sitemap');
   const { default: robots } = await import('../app/robots');
-  expect(absoluteUrl('/tools/url-decoder/')).toBe(
-    'https://example.com/tools/url-decoder/',
+  expect(absoluteUrl('/tests/animal/')).toBe(
+    'https://example.com/tests/animal/',
   );
   expect(sitemap().map((entry) => entry.url)).toEqual([
     'https://example.com/',
-    'https://example.com/tools/url-decoder/',
+    'https://example.com/tests/animal/',
+    'https://example.com/tests/patience/',
+    'https://example.com/tests/travel-worldcup/',
+    'https://example.com/tests/celebrity-lookalike/',
+    'https://example.com/tests/find-difference/',
   ]);
   expect(robots().sitemap).toBe('https://example.com/sitemap.xml');
 });
