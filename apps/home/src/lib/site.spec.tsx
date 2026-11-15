@@ -27,7 +27,6 @@ it('uses the production origin consistently for canonical, robots and sitemap', 
     'https://example.com/tests/patience/',
     'https://example.com/tests/travel-worldcup/',
     'https://example.com/tests/celebrity-lookalike/',
-    'https://example.com/tests/find-difference/',
   ]);
   expect(robots().sitemap).toBe('https://example.com/sitemap.xml');
 });

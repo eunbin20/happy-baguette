@@ -8,7 +8,6 @@ const categories = [
   { icon: '▦', label: '전체', active: true },
   { icon: '☺', label: '성격' },
   { icon: '◎', label: '얼굴' },
-  { icon: '⌁', label: '관찰력' },
   { icon: 'VS', label: '월드컵' },
 ];
 
@@ -23,8 +22,6 @@ const tests = [
   { href: '/tests/patience/', art: 'patience', badge: '게임', title: '나의 인내심 테스트', description: '로딩 화면 앞에서 나는 얼마나 기다릴까?', meta: '터치 게임 · 1분', available: true },
   { href: '/tests/travel-worldcup/', art: 'worldcup', badge: '월드컵', title: '여행지 이상형 월드컵', description: '지금 가장 떠나고 싶은 여행지는 어디?', meta: '16강 · 2분', available: true },
   { href: '/tests/celebrity-lookalike/', art: 'face', badge: '얼굴', title: '당신과 닮은 유명인 찾기', description: '사진으로 확인하는 나의 닮은꼴', meta: '사진 테스트 · 1분', available: true },
-  { href: '/tests/find-difference/', art: 'focus', badge: '관찰력', title: '다른 그림 찾기', description: '그림 사이에 숨어 있는 다른 하나를 찾아보세요', meta: '5단계 · 1분', available: true },
-  { art: 'mood', badge: '성격', title: '오늘의 기분 컬러', description: '지금 끌리는 색으로 확인하는 오늘의 마음', meta: '8문항 · 2분' },
 ];
 
 function TestCard({ test }: { test: (typeof tests)[number] }) {
@@ -34,8 +31,6 @@ function TestCard({ test }: { test: (typeof tests)[number] }) {
       {test.art === 'patience' && <div className="thumb-symbol">10</div>}
       {test.art === 'face' && <div className="thumb-emoji single">✨</div>}
       {test.art === 'worldcup' && <div className="versus"><span>🏖️</span><b>VS</b><span>🏙️</span></div>}
-      {test.art === 'focus' && <div className="focus-grid">● ● ●<br />● ○ ●<br />● ● ●</div>}
-      {test.art === 'mood' && <div className="color-dots"><i /><i /><i /><i /></div>}
       {!test.available && <span className="status-badge">준비 중</span>}
     </div>
     <div className="test-info">
@@ -73,7 +68,7 @@ export default function Home() {
     <section className="service-section" aria-labelledby="service-title">
       <h2 id="service-title">둘러보기</h2>
       <div className="service-grid">
-        <a className="service-card tests" href="#tests"><span className="service-icon">✓</span><div><b>테스트</b><p>성격, 얼굴, 관찰력, 이상형 월드컵</p></div><i>→</i></a>
+        <a className="service-card tests" href="#tests"><span className="service-icon">✓</span><div><b>테스트</b><p>성격, 얼굴, 게임, 이상형 월드컵</p></div><i>→</i></a>
         <a className="service-card maps" href="#maps"><span className="service-icon">⌖</span><div><b>지도</b><p>지역별 장소와 가격, 운영 정보</p></div><i>→</i></a>
       </div>
     </section>

@@ -9,5 +9,4 @@ it('presents Happy Test and links to the first test', () => {
   expect(screen.getByRole('link', { name: /나의 인내심 테스트/ })).toHaveAttribute('href', '/tests/patience');
   expect(screen.getByRole('link', { name: /여행지 이상형 월드컵/ })).toHaveAttribute('href', '/tests/travel-worldcup');
   expect(screen.getByRole('link', { name: /당신과 닮은 유명인 찾기/ })).toHaveAttribute('href', '/tests/celebrity-lookalike');
-  expect(screen.getByRole('link', { name: /다른 그림 찾기/ })).toHaveAttribute('href', '/tests/find-difference');
 });
