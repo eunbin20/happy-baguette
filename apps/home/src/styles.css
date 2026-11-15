@@ -418,3 +418,37 @@ footer {
 .encoding-table th {
   background: #eee7dc;
 }
+
+/* Click-first home */
+body:has(.feed-home) { background: #fffdf5; }
+.feed-home { max-width: 1080px; padding: 0 18px 30px; }
+.feed-header { height: 58px; display: flex; align-items: center; justify-content: space-between; }
+.feed-header .logo { transform: rotate(-2deg); font-size: 27px; }
+.header-note { padding: 5px 10px; background: #fff09a; color: #28222b; font-size: 11px; font-weight: 850; transform: rotate(1deg); }
+.click-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-flow: dense; gap: 10px; }
+.click-tile { position: relative; min-height: 260px; overflow: hidden; display: block; border-radius: 5px; background: #ddd; color: white; text-decoration: none; isolation: isolate; }
+.click-tile::after { content: ''; position: absolute; z-index: -1; inset: 28% 0 0; background: linear-gradient(transparent, #000b 88%); }
+.click-tile img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease, filter .3s ease; }
+.click-tile:hover img { transform: scale(1.07); filter: saturate(1.2) contrast(1.08); }
+.click-tile h2 { position: absolute; left: 15px; right: 12px; bottom: 13px; margin: 0; color: white; font-size: clamp(20px, 2.5vw, 31px); line-height: 1.05; letter-spacing: -.055em; text-shadow: 0 2px 12px #0008; }
+.tile-label { position: absolute; left: 12px; top: 11px; padding: 4px 7px; border: 2px solid #16131a; background: #d9ff52; color: #17131a; font: 900 10px/1 system-ui, sans-serif; letter-spacing: .05em; transform: rotate(-3deg); box-shadow: 3px 3px 0 #17131a; }
+.hero-tile { grid-column: span 7; grid-row: span 2; min-height: 530px; }
+.tall-tile { grid-column: span 5; grid-row: span 2; min-height: 530px; }
+.wide-tile { grid-column: span 7; min-height: 290px; }
+.square-tile { grid-column: span 5; min-height: 290px; }
+.portrait-tile { grid-column: span 5; min-height: 410px; }
+.tile-4 { transform: rotate(1deg); }.tile-5 { grid-column: span 5; }.tile-6 { grid-column: span 7; min-height: 410px; transform: rotate(-.6deg); }.tile-7 { grid-column: span 5; }
+.pending { cursor: default; filter: saturate(.75); }
+.pending-label { position: absolute; right: 11px; top: 11px; padding: 5px 8px; background: #ff5d77; color: white; font-size: 10px; transform: rotate(3deg); }
+.feed-home > footer { display: flex; justify-content: space-between; margin-top: 18px; padding: 18px 2px 0; border-top: 3px solid #29243a; color: #29243a; }
+
+@media (max-width: 680px) {
+  .feed-home { padding: 0 8px 24px; }
+  .feed-header { height: 52px; padding: 0 5px; }
+  .header-note { font-size: 9px; }
+  .click-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .click-tile, .hero-tile, .tall-tile, .wide-tile, .square-tile, .portrait-tile, .tile-5, .tile-6, .tile-7 { grid-column: span 1; grid-row: auto; min-height: 238px; transform: none; }
+  .hero-tile { grid-column: span 2; min-height: 390px; }
+  .wide-tile { grid-column: span 2; min-height: 245px; }
+  .click-tile h2 { left: 11px; bottom: 11px; font-size: 21px; }
+}
