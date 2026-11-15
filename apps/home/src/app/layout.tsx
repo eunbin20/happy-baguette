@@ -6,13 +6,13 @@ import { siteUrl } from '../lib/site';
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
-  title: { default: '해피', template: '%s | 해피' },
+  title: { default: 'happy baguette', template: '%s | happy baguette' },
   description:
-    '재미있는 테스트와 지역별 생활 지도를 한곳에서 확인하세요.',
+    '심심할 때 찾아와요. 재미있는 테스트와 생활 지도를 만나보세요.',
   openGraph: {
-    title: '해피',
-    description: '테스트와 생활 지도를 한곳에서',
-    siteName: '해피',
+    title: 'happy baguette',
+    description: '심심할 때 찾아와요',
+    siteName: 'happy baguette',
     locale: 'ko_KR',
     type: 'website',
   },

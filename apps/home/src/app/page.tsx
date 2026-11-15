@@ -31,8 +31,8 @@ export default function Home() {
   return (
     <main className="home-shell feed-home">
       <header className="feed-header">
-        <Link className="logo" href="/" aria-label="해피 홈"><span>happy!</span></Link>
-        <span className="header-note">심심할 때 누르는 곳</span>
+        <Link className="logo" href="/" aria-label="happy baguette 홈"><span>happy baguette</span></Link>
+        <span className="header-note">심심할 때 찾아와요</span>
       </header>
 
       <div className="click-grid" id="tests">
@@ -44,7 +44,7 @@ export default function Home() {
         })}
       </div>
 
-      <footer><strong>happy!</strong><span>© 2026 Happy</span></footer>
+      <footer><strong>happy baguette</strong><span>© 2026 happy baguette</span></footer>
     </main>
   );
 }
