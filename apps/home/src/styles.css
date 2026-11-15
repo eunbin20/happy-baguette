@@ -94,6 +94,7 @@ input:focus-visible {
 .site-header, .compact-header { height: 82px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-size: 24px; line-height: 1; font-weight: 900; letter-spacing: -0.06em; text-decoration: none; color: #29243a; }
 .logo span { color: #ff6d63; }
+.compact-header .logo { font-size: 27px; transform: rotate(-2deg); }
 .header-pill { padding: 7px 13px; border-radius: 999px; background: #fff; border: 1px solid #eee5e0; font-size: 12px; font-weight: 750; color: #756d7e; }
 .hero { margin: 0; padding: 78px 0 64px; border: 0; border-radius: 0; background: transparent; }
 .hero-kicker { margin: 0 0 14px; color: #ff6d63; font-weight: 800; font-size: 15px; }
