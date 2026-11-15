@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AnimalTestPage() {
   return <main className="test-page">
-    <header className="compact-header"><Link className="logo" href="/"><span>happy</span></Link></header>
+    <header className="compact-header"><Link className="logo" href="/"><span>happy baguette</span></Link></header>
     <AnimalTest />
   </main>;
 }

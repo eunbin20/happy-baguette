@@ -96,10 +96,9 @@ export default function AnimalTest() {
   }
 
   if (!started) return <section className="quiz-panel intro-panel">
-    <div className="intro-animals" aria-hidden="true">🐶 🐱 🦊 🐻</div><p className="quiz-label">성격 테스트</p>
-    <h1>내가 동물이라면?</h1><p>일상 속 선택으로 발견하는<br />나와 꼭 닮은 동물 캐릭터</p>
-    <div className="quiz-meta"><span>10문항</span><span>약 3분</span></div>
-    <button className="quiz-button" onClick={() => setStarted(true)}>시작하기</button><small>결과는 재미로 가볍게 즐겨주세요.</small>
+    <div className="intro-animals" aria-hidden="true">🐶 🐱 🦊 🐻</div>
+    <h1>내가 동물이라면?</h1>
+    <button className="quiz-button" onClick={() => setStarted(true)}>시작하기</button>
   </section>;
 
   const question = questions[index];
