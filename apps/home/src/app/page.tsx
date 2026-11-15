@@ -8,7 +8,12 @@ const tests = [
   { href: '/tests/animal/', title: '내가 동물이라면?', image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=88', label: 'HOT' },
   { href: '/tests/patience/', title: '나의 인내심 테스트', image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=900&q=88', label: 'GAME' },
   { href: '/tests/travel-worldcup/', title: '여행지 이상형 월드컵', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=88', label: 'VS' },
-  { href: '/tests/celebrity-lookalike/', title: '당신과 닮은 유명인 찾기', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=88', label: 'NEW' },
+  {
+    href: '/tests/celebrity-lookalike/',
+    title: '당신과 닮은 유명인 찾기',
+    image: 'https://img.sbs.co.kr/newsnet/etv/upload/2025/05/23/30000993477_1280.jpg',
+    label: 'NEW',
+  },
 ];
 
 const maps = [
@@ -37,7 +42,10 @@ export default function Home() {
 
       <div className="click-grid" id="tests">
         {tiles.map((tile, index) => {
-          const content = <><img src={tile.image} alt="" /><span className="tile-label">{tile.label}</span><h2>{tile.title}</h2>{'pending' in tile && tile.pending && <b className="pending-label">곳 열림</b>}</>;
+          const content = <>
+            <img src={tile.image} alt="" />
+            <span className="tile-label">{tile.label}</span><h2>{tile.title}</h2>{'pending' in tile && tile.pending && <b className="pending-label">곳 열림</b>}
+          </>;
           return 'href' in tile
             ? <Link className={`click-tile ${tile.size} tile-${index + 1}`} href={tile.href} key={tile.title}>{content}</Link>
             : <article className={`click-tile ${tile.size} tile-${index + 1} pending`} key={tile.title}>{content}</article>;
