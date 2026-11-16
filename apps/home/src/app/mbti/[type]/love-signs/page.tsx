@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getMbtiLovePost, mbtiLovePosts } from '../../../../lib/mbti-love';
+import { getMbtiLoveExtra } from '../../../../lib/mbti-love-extras';
 import { absoluteUrl } from '../../../../lib/site';
 
 type PageProps = { params: Promise<{ type: string }> };
@@ -27,6 +28,7 @@ export default async function MbtiLovePage({ params }: PageProps) {
   const { type } = await params;
   const post = getMbtiLovePost(type);
   if (!post) notFound();
+  const extra = getMbtiLoveExtra(post.type);
   const index = mbtiLovePosts.findIndex((item) => item.type === post.type);
   const next = mbtiLovePosts[(index + 1) % mbtiLovePosts.length];
 
@@ -46,6 +48,17 @@ export default async function MbtiLovePage({ params }: PageProps) {
 
         <p className="love-intro">{post.intro}</p>
 
+        {extra && <section className="love-deep-dive">
+          <div>
+            <span>찐사랑이 되면</span>
+            <p>{extra.serious}</p>
+          </div>
+          <div>
+            <span>헷갈리기 쉬운 점</span>
+            <p>{extra.confusing}</p>
+          </div>
+        </section>}
+
         <section className="love-signs">
           {post.signals.map((signal, signalIndex) => (
             <div className="love-sign" key={signal.title}>
@@ -54,6 +67,11 @@ export default async function MbtiLovePage({ params }: PageProps) {
             </div>
           ))}
         </section>
+
+        {extra && <section className="love-stories">
+          <span>실제 연애에서 자주 보이는 장면</span>
+          <ul>{extra.stories.map((story) => <li key={story}>{story}</li>)}</ul>
+        </section>}
 
         <section className="love-move">
           <span>HOW TO MOVE</span>
