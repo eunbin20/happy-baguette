@@ -33,8 +33,16 @@ const tiles = [
 ];
 
 export default function Home() {
+  const homeUrl = absoluteUrl('/');
   return (
     <main className="home-shell feed-home">
+      {homeUrl && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'happy baguette',
+        alternateName: '해피 바게트',
+        url: homeUrl,
+      }) }} />}
       <header className="feed-header">
         <Link className="logo" href="/" aria-label="happy baguette 홈"><span>happy baguette</span></Link>
         <span className="header-note">심심할 때 찾아와요</span>
