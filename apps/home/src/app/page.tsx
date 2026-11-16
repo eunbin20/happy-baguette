@@ -30,6 +30,13 @@ const tiles = [
   { ...tests[3], size: 'portrait-tile' },
   { ...maps[1], label: 'MAP', size: 'wide-tile', pending: true },
   { ...maps[2], label: 'MAP', size: 'square-tile', pending: true },
+  {
+    href: '/mbti/',
+    title: 'MBTI가 진짜 좋아할 때',
+    image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=88',
+    label: 'LOVE',
+    size: 'wide-tile',
+  },
 ];
 
 export default function Home() {

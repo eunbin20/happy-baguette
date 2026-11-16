@@ -456,3 +456,50 @@ body:has(.feed-home) { background: #fffdf5; }
   .tile-5 { grid-column: span 2; min-height: 390px; }
   .click-tile h2 { left: 11px; bottom: 11px; font-size: 21px; }
 }
+
+/* MBTI love series */
+body:has(.mbti-index), body:has(.love-article) { background: #fffaf0; color: #201b25; }
+.mbti-index, .love-article { width: min(960px, calc(100% - 28px)); margin: 0 auto; padding-bottom: 50px; }
+.mbti-header { height: 62px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #201b25; }
+.mbti-header .logo { font-size: 25px; transform: rotate(-2deg); }
+.mbti-header > a:last-child { color: #201b25; font-size: 12px; font-weight: 900; text-decoration: none; }
+.mbti-intro { padding: 58px 8px 40px; }
+.mbti-intro > span, .love-kicker { display: inline-block; padding: 5px 8px; background: #d9ff52; border: 2px solid #201b25; box-shadow: 3px 3px 0 #201b25; font-size: 11px; font-weight: 950; transform: rotate(-2deg); }
+.mbti-intro h1 { max-width: 750px; margin: 20px 0 13px; font-size: clamp(44px, 8vw, 84px); line-height: .94; letter-spacing: -.075em; }
+.mbti-intro p { margin: 0; font-weight: 750; }
+.mbti-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.mbti-card { min-height: 220px; padding: 18px; border: 3px solid #201b25; box-shadow: 5px 5px 0 #201b25; color: white; text-decoration: none; display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease; }
+.mbti-card:hover { transform: translate(-2px, -3px) rotate(0) !important; box-shadow: 8px 9px 0 #201b25; }
+.mbti-card b { font-size: 40px; letter-spacing: -.06em; }
+.mbti-card span { margin-top: auto; font-size: 18px; font-weight: 850; line-height: 1.15; word-break: keep-all; text-shadow: 0 1px 3px #0002; }
+.mbti-card i { margin-top: 13px; font-size: 11px; font-style: normal; font-weight: 900; }
+.love-article > article { max-width: 760px; margin: 34px auto 0; }
+.love-hero { min-height: 430px; padding: 40px; border: 3px solid #201b25; box-shadow: 8px 8px 0 #201b25; color: white; display: flex; flex-direction: column; align-items: flex-start; }
+.love-hero h1 { margin: auto 0 20px; font-size: clamp(43px, 7vw, 70px); line-height: .95; letter-spacing: -.07em; }
+.love-hero strong { max-width: 580px; font-size: clamp(20px, 3vw, 29px); line-height: 1.15; word-break: keep-all; }
+.love-intro { margin: 55px auto; max-width: 650px; font-size: 20px; font-weight: 650; line-height: 1.75; word-break: keep-all; }
+.love-signs { border-top: 3px solid #201b25; }
+.love-sign { display: grid; grid-template-columns: 70px 1fr; gap: 18px; padding: 28px 5px; border-bottom: 3px solid #201b25; }
+.love-sign > b { font-size: 35px; color: #ff5470; }
+.love-sign h2 { margin: 0 0 8px; font-size: 24px; letter-spacing: -.045em; }
+.love-sign p { margin: 0; font-size: 16px; line-height: 1.65; color: #4c4350; }
+.love-move { margin: 50px 0 25px; padding: 30px; background: #d9ff52; border: 3px solid #201b25; box-shadow: 6px 6px 0 #201b25; }
+.love-move span { font-size: 10px; font-weight: 950; }
+.love-move h2 { margin: 7px 0 15px; font-size: 28px; }
+.love-move p { margin: 0; font-size: 17px; font-weight: 650; line-height: 1.65; }
+.love-related { display: flex; justify-content: space-between; gap: 8px; margin-top: 30px; }
+.love-related a { color: #201b25; font-size: 13px; font-weight: 900; }
+@media (max-width: 720px) {
+  .mbti-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+  .mbti-card { min-height: 180px; padding: 14px; box-shadow: 4px 4px 0 #201b25; }
+  .mbti-card b { font-size: 31px; }
+  .mbti-card span { font-size: 16px; }
+  .mbti-intro { padding: 42px 2px 30px; }
+  .love-article > article { margin-top: 18px; }
+  .love-hero { min-height: 385px; padding: 24px; box-shadow: 5px 5px 0 #201b25; }
+  .love-intro { margin: 40px 4px; font-size: 18px; }
+  .love-sign { grid-template-columns: 46px 1fr; gap: 10px; padding: 23px 2px; }
+  .love-sign > b { font-size: 26px; }
+  .love-sign h2 { font-size: 20px; }
+  .love-move { padding: 22px; }
+}
