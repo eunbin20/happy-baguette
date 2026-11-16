@@ -428,6 +428,9 @@ body:has(.feed-home) { background: #fffdf5; }
 .header-note { padding: 5px 10px; background: #fff09a; color: #28222b; font-size: 11px; font-weight: 850; transform: rotate(1deg); }
 .feed-search { margin: 5px 12px 12px; height: 46px; padding: 0 16px; border-radius: 13px; background: #eeeff2; color: #8c9097; display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 650; }
 .feed-search span { font: 400 30px/1 serif; transform: rotate(-20deg); }
+.feed-tabs { display: flex; gap: 22px; padding: 0 14px 12px; border-bottom: 1px solid #ddd; }
+.feed-tabs a { padding: 10px 1px 7px; color: #8a858c; font-size: 16px; font-weight: 850; text-decoration: none; }
+.feed-tabs a.active { color: #17131a; border-bottom: 3px solid #17131a; }
 .click-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: #fff; }
 .click-tile { position: relative; min-width: 0; aspect-ratio: 1; overflow: hidden; display: block; background: #ddd; color: white; text-decoration: none; isolation: isolate; }
 .click-tile::after { content: ''; position: absolute; z-index: -1; inset: 25% 0 0; background: linear-gradient(transparent, #0009 95%); }
@@ -441,6 +444,14 @@ body:has(.feed-home) { background: #fffdf5; }
 .pending { cursor: default; filter: saturate(.75); }
 .pending-label { position: absolute; right: 8px; top: 8px; padding: 4px 6px; background: #ff315d; color: white; font-size: 9px; transform: rotate(3deg); }
 .feed-home > footer { display: flex; justify-content: space-between; margin: 18px 12px 0; padding: 18px 2px 0; border-top: 3px solid #29243a; color: #29243a; }
+.test-feed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
+.test-feed-card { position: relative; aspect-ratio: 1; overflow: hidden; color: white; background: #ddd; text-decoration: none; isolation: isolate; }
+.test-feed-card::after { content: ''; position: absolute; z-index: -1; inset: 40% 0 0; background: linear-gradient(transparent, #000c); }
+.test-feed-card > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.test-feed-card:hover > img { transform: scale(1.05); }
+.test-feed-card h2 { position: absolute; left: 13px; right: 10px; bottom: 12px; margin: 0; color: white; font-size: clamp(22px, 4vw, 38px); line-height: 1.05; letter-spacing: -.055em; text-shadow: -2px -2px #111, 2px -2px #111, -2px 2px #111, 2px 2px #111; }
+.test-chip { position: absolute; left: 10px; top: 10px; padding: 4px 7px; background: #fff; color: #111; border: 2px solid #111; box-shadow: 2px 2px #111; font-size: 9px; font-weight: 950; }
+.mock-result { position: absolute; top: 44px; left: 10px; max-width: calc(100% - 20px); padding: 7px 10px; background: #ffffffeb; color: #17131a; border: 2px solid #17131a; font-size: clamp(11px, 1.8vw, 17px); font-weight: 900; transform: rotate(-1deg); }
 
 @media (max-width: 680px) {
   .feed-home { padding: 0 0 24px; }
@@ -448,10 +459,16 @@ body:has(.feed-home) { background: #fffdf5; }
   .feed-header .logo { font-size: 23px; }
   .header-note { font-size: 9px; }
   .feed-search { height: 41px; margin: 4px 8px 8px; font-size: 13px; }
+  .feed-tabs { gap: 18px; padding: 0 9px 8px; }
+  .feed-tabs a { font-size: 14px; }
   .click-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5px; }
   .click-tile h2 { left: 5px; right: 4px; bottom: 6px; font-size: clamp(12px, 4.1vw, 18px); line-height: 1.08; text-shadow: -1.2px -1.2px 0 #111, 1.2px -1.2px 0 #111, -1.2px 1.2px 0 #111, 1.2px 1.2px 0 #111, 0 2px 5px #000; }
   .tile-label { left: 5px; top: 5px; padding: 2px 4px; font-size: 7px; box-shadow: 1.5px 1.5px 0 #111; }
   .pending-label { display: none; }
+  .test-feed-grid { gap: 3px; padding: 3px 0; }
+  .test-feed-card h2 { left: 7px; bottom: 8px; font-size: 20px; text-shadow: -1.3px -1.3px #111, 1.3px -1.3px #111, -1.3px 1.3px #111, 1.3px 1.3px #111; }
+  .test-chip { left: 6px; top: 6px; }
+  .mock-result { left: 6px; top: 36px; padding: 5px 7px; }
 }
 
 /* MBTI love series */
@@ -494,6 +511,15 @@ body:has(.mbti-index), body:has(.love-article) { background: #fffaf0; color: #20
 .love-move p { margin: 0; font-size: 17px; font-weight: 650; line-height: 1.65; }
 .love-related { display: flex; justify-content: space-between; gap: 8px; margin-top: 30px; }
 .love-related a { color: #201b25; font-size: 13px; font-weight: 900; }
+.ramble-post { max-width: 700px !important; }
+.ramble-post .love-hero { min-height: 0; padding: 24px 2px 20px; background: transparent !important; color: #201b25; border: 0; border-bottom: 4px solid #201b25; box-shadow: none; }
+.ramble-post .love-hero h1 { margin: 35px 0 16px; font-size: clamp(44px, 8vw, 72px); }
+.ramble-post .love-hero strong { font-size: 22px; }
+.ramble-copy { padding: 8px 2px; }
+.ramble-copy > p, .ramble-bit p { margin: 24px 0; color: #332d35; font-size: 18px; line-height: 1.92; word-break: keep-all; }
+.ramble-bit { margin: 38px 0; }
+.ramble-bit h2, .ramble-copy > h2 { margin: 0 0 8px; font-size: 25px; line-height: 1.25; letter-spacing: -.04em; }
+.ramble-copy .story-line { margin: 9px 0; padding-left: 11px; font-weight: 700; }
 @media (max-width: 720px) {
   .mbti-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
   .mbti-card { min-height: 180px; padding: 14px; box-shadow: 4px 4px 0 #201b25; }
@@ -510,4 +536,9 @@ body:has(.mbti-index), body:has(.love-article) { background: #fffaf0; color: #20
   .love-sign h2 { font-size: 20px; }
   .love-move { padding: 22px; }
   .love-stories { padding: 18px; }
+  .ramble-post .love-hero { padding: 18px 1px 16px; }
+  .ramble-post .love-hero h1 { margin-top: 28px; }
+  .ramble-copy > p, .ramble-bit p { margin: 20px 0; font-size: 17px; line-height: 1.85; }
+  .ramble-bit { margin: 32px 0; }
+  .ramble-bit h2, .ramble-copy > h2 { font-size: 22px; }
 }

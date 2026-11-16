@@ -39,45 +39,28 @@ export default async function MbtiLovePage({ params }: PageProps) {
         <Link href="/mbti/">MBTI 전체</Link>
       </header>
 
-      <article>
+      <article className="ramble-post">
         <section className="love-hero" style={{ backgroundColor: post.color }}>
           <span className="love-kicker">LOVE SIGNAL · {post.type}</span>
           <h1>{post.type}가 진짜<br />좋아할 때 하는 행동</h1>
           <strong>{post.hook}</strong>
         </section>
 
-        <p className="love-intro">{post.intro}</p>
-
-        {extra && <section className="love-deep-dive">
-          <div>
-            <span>찐사랑이 되면</span>
-            <p>{extra.serious}</p>
-          </div>
-          <div>
-            <span>헷갈리기 쉬운 점</span>
-            <p>{extra.confusing}</p>
-          </div>
-        </section>}
-
-        <section className="love-signs">
-          {post.signals.map((signal, signalIndex) => (
-            <div className="love-sign" key={signal.title}>
-              <b>{String(signalIndex + 1).padStart(2, '0')}</b>
-              <div><h2>{signal.title}</h2><p>{signal.body}</p></div>
-            </div>
-          ))}
-        </section>
-
-        {extra && <section className="love-stories">
-          <span>실제 연애에서 자주 보이는 장면</span>
-          <ul>{extra.stories.map((story) => <li key={story}>{story}</li>)}</ul>
-        </section>}
-
-        <section className="love-move">
-          <span>HOW TO MOVE</span>
-          <h2>{post.type} 마음을 움직이는 법</h2>
-          <p>{post.move}</p>
-        </section>
+        <div className="ramble-copy">
+          <p>{post.intro}</p>
+          {extra && <p>일단 찐사랑이 되면 좀 다르다. {extra.serious}</p>}
+          {post.signals.map((signal, signalIndex) => <div className="ramble-bit" key={signal.title}>
+            <h2>{signalIndex + 1}. {signal.title}</h2>
+            <p>{signal.body} 이런 건 한두 번으로 판단하기보다는 자꾸 반복되는지를 보는 게 맞다.</p>
+          </div>)}
+          {extra && <>
+            <p>근데 여기서 은근 많이 헷갈리는 게 있다. {extra.confusing}</p>
+            <h2>실제로는 대충 이런 식이다</h2>
+            {extra.stories.map((story) => <p className="story-line" key={story}>— {story}</p>)}
+          </>}
+          <p>그래서 어떻게 다가가야 하냐면, {post.move}</p>
+          <p>결국 한 가지 행동보다 나한테만 꾸준히 달라지는지를 보면 된다. 관심 없는 사람에게 계속 시간과 에너지를 쓰는 사람은 생각보다 많지 않으니까.</p>
+        </div>
 
         <nav className="love-related">
           <Link href="/mbti/">16개 유형 전체 보기</Link>

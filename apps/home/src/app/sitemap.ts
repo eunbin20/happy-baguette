@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/tests/patience/', changeFrequency: 'monthly' as const, priority: 0.8 },
     { path: '/tests/travel-worldcup/', changeFrequency: 'monthly' as const, priority: 0.8 },
     { path: '/tests/celebrity-lookalike/', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { path: '/tests/', changeFrequency: 'weekly' as const, priority: 0.9 },
     { path: '/mbti/', changeFrequency: 'weekly' as const, priority: 0.9 },
     ...mbtiLovePosts.map((post) => ({
       path: `/mbti/${post.type.toLowerCase()}/love-signs/`,
