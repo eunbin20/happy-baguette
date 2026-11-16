@@ -6,13 +6,13 @@ export const metadata: Metadata = { alternates: { canonical: absoluteUrl('/') } 
 
 const posts = [
   { href: '/mbti/infp/love-signs/', title: 'INFP가 진짜 사랑에 빠지면 생기는 일', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=88', label: 'INFP' },
-  { href: '/mbti/entp/love-signs/', title: 'ENTP가 갑자기 다정해졌다면', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=88', label: 'ENTP' },
-  { href: '/mbti/istp/love-signs/', title: 'ISTP가 이러면 이미 찐사랑임', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=88', label: 'ISTP' },
-  { href: '/mbti/enfp/love-signs/', title: 'ENFP의 친절과 호감 구별하는 법', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=88', label: 'ENFP' },
+  { href: '/dream/snake/', title: '뱀 나오는 꿈, 색깔마다 뜻이 다르다', image: 'https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
+  { href: '/mbti/entp/compatibility/', title: 'ENTP 연애 궁합 잘 맞는 유형은?', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=88', label: '궁합' },
+  { href: '/dream/teeth-falling/', title: '이빨 빠지는 꿈이 계속 신경 쓰인다면', image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
   { href: '/mbti/intj/love-signs/', title: 'INTJ가 자기 계획에 나를 넣었다', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=88', label: 'INTJ' },
-  { href: '/mbti/isfj/love-signs/', title: 'ISFJ의 다정함이 사랑으로 바뀌는 순간', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=88', label: 'ISFJ' },
-  { href: '/mbti/estp/love-signs/', title: 'ESTP가 한 사람에게 정착할 때', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=900&q=88', label: 'ESTP' },
-  { href: '/mbti/', title: '나머지 MBTI 찐사랑 특징 전부 보기', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=88', label: '16 TYPES' },
+  { href: '/dream/ex-lover/', title: '전 애인이 꿈에 나온 진짜 이유', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
+  { href: '/mbti/isfj/compatibility/', title: 'ISFJ와 오래 만나는 사람들의 공통점', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=88', label: '궁합' },
+  { href: '/dream/', title: '어젯밤 꾼 꿈 의미 전부 찾아보기', image: 'https://images.unsplash.com/photo-1511295742362-92c96b1cf484?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
 ];
 
 export default function Home() {
@@ -29,6 +29,9 @@ export default function Home() {
       <nav className="feed-tabs" aria-label="콘텐츠 종류">
         <Link className="active" href="/">재밌는 글</Link>
         <Link href="/tests/">재밌는 테스트</Link>
+      </nav>
+      <nav className="article-categories" aria-label="글 카테고리">
+        <Link href="/mbti/">MBTI 연애</Link><Link href="/mbti/compatibility/">MBTI 궁합</Link><Link href="/dream/">꿈해몽</Link>
       </nav>
       <div className="feed-search" aria-hidden="true"><span>⌕</span> 궁금한 MBTI를 찾아보세요</div>
       <div className="click-grid post-feed">
