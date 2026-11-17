@@ -27,7 +27,7 @@ export default function TestsPage() {
     </nav>
     <div className="test-feed-grid">
       {tests.map((test) => <Link className="test-feed-card" href={test.href} key={test.title}>
-        <img src={test.image} alt="" />
+        <img src={test.image} alt={test.title} />
         <h2>{test.title}</h2>
       </Link>)}
     </div>

@@ -5,6 +5,7 @@ import { getMbtiLovePost, mbtiLovePosts } from '../../../../lib/mbti-love';
 import { getMbtiLoveExtra } from '../../../../lib/mbti-love-extras';
 import { getMbtiLoveDeep } from '../../../../lib/mbti-love-deep';
 import { absoluteUrl } from '../../../../lib/site';
+import { articleJsonLd, breadcrumbJsonLd, defaultShareImage } from '../../../../lib/seo';
 
 type PageProps = { params: Promise<{ type: string }> };
 
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${post.type}가 진짜 좋아할 때 하는 행동`,
     description: `${post.type}의 진짜 호감 신호 4가지와 마음을 움직이는 방법. ${post.hook}`,
     alternates: { canonical: absoluteUrl(path) },
-    openGraph: { title: `${post.type}가 진짜 좋아할 때 하는 행동`, description: post.hook, type: 'article' },
+    openGraph: { title: `${post.type}가 진짜 좋아할 때 하는 행동`, description: post.hook, type: 'article', url: path, images: [defaultShareImage], publishedTime: '2026-11-17T00:00:00+09:00', modifiedTime: '2026-11-17T00:00:00+09:00' },
+    twitter: { card: 'summary_large_image', title: `${post.type}가 진짜 좋아할 때 하는 행동`, description: post.hook, images: [defaultShareImage] },
   };
 }
 
@@ -33,9 +35,13 @@ export default async function MbtiLovePage({ params }: PageProps) {
   const deep = getMbtiLoveDeep(post.type);
   const index = mbtiLovePosts.findIndex((item) => item.type === post.type);
   const next = mbtiLovePosts[(index + 1) % mbtiLovePosts.length];
+  const path = `/mbti/${type.toLowerCase()}/love-signs/`;
+  const title = `${post.type}가 진짜 좋아할 때 하는 행동`;
 
   return (
     <main className="love-article">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd({ title, description: post.hook, path, section: 'MBTI 연애' })) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: '홈', path: '/' }, { name: 'MBTI 연애', path: '/mbti/' }, { name: post.type, path }])) }} />
       <header className="mbti-header">
         <Link className="logo" href="/" aria-label="happy baguette 홈"><span>happy baguette</span></Link>
         <Link href="/mbti/">MBTI 전체</Link>

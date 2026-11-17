@@ -5,12 +5,12 @@ afterEach(() => {
   vi.resetModules();
 });
 
-it('does not invent a canonical origin when the deployment domain is unknown', async () => {
+it('uses the confirmed production domain when the build variable is missing', async () => {
   vi.stubEnv('SITE_URL', '');
   const { absoluteUrl } = await import('./site');
   const { default: sitemap } = await import('../app/sitemap');
-  expect(absoluteUrl('/')).toBeUndefined();
-  expect(sitemap()).toEqual([]);
+  expect(absoluteUrl('/')).toBe('https://happybaguette.com/');
+  expect(sitemap()).toHaveLength(47);
 });
 
 it('uses the production origin consistently for canonical, robots and sitemap', async () => {

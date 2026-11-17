@@ -36,7 +36,7 @@ export default function Home() {
       <div className="feed-search" aria-hidden="true"><span>⌕</span> 궁금한 MBTI를 찾아보세요</div>
       <div className="click-grid post-feed">
         {posts.map((post) => <Link className="click-tile" href={post.href} key={post.title}>
-          <img src={post.image} alt="" />
+          <img src={post.image} alt={post.title} />
           <span className="tile-label">{post.label}</span>
           <h2>{post.title}</h2>
         </Link>)}

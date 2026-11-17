@@ -1,7 +1,6 @@
 /** Set SITE_URL to the production origin at build time. */
 export function getSiteUrl(): URL | undefined {
-  const value = process.env.SITE_URL;
-  if (!value) return undefined;
+  const value = process.env.SITE_URL || 'https://happybaguette.com';
   const url = new URL(value);
   if (
     !['http:', 'https:'].includes(url.protocol) ||

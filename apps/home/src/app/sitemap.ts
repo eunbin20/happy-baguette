@@ -3,6 +3,7 @@ import { siteUrl } from '../lib/site';
 import { mbtiLovePosts } from '../lib/mbti-love';
 import { mbtiCompatibility } from '../lib/mbti-compatibility';
 import { dreamPosts } from '../lib/dream-posts';
+import { contentUpdatedAt } from '../lib/seo';
 
 export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   return pages.map(({ path, changeFrequency, priority }) => ({
     url: new URL(path, siteUrl).href,
+    lastModified: contentUpdatedAt,
     changeFrequency,
     priority,
   }));
