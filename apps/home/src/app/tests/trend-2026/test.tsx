@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { downloadResultImage } from '../../../lib/download-result';
+import TestShareButton from '../../../components/test-share-button';
 
 const questions = [
   ['사람 대신 목표를 받고 여러 단계를 수행하는 AI를 부르는 말은?', ['AI 에이전트', '디지털 트윈', '클라우드 봇'], 0],
@@ -22,6 +23,6 @@ export default function TrendTest() {
   function answer(choice: number) { const next = score + (choice === questions[index][2] ? 1 : 0); if (index === questions.length - 1) { setScore(next); setDone(true); } else { setScore(next); setIndex(index + 1); } }
   function reset() { setStarted(false); setIndex(0); setScore(0); setDone(false); }
   if (!started) return <section className="quiz-panel intro-panel"><div className="intro-animals">🤖 📱 🧠 ✨</div><p className="result-overline">10문제로 확인하는 나의 유행 감각</p><h1>2026 트렌드 고사</h1><button className="quiz-button" onClick={() => setStarted(true)}>시험 시작하기</button></section>;
-  if (done) { const [name, description, emoji, color] = resultFor(score); return <section className="quiz-panel result-panel"><p className="result-overline">2026 트렌드 점수</p><strong className="elapsed-time">{score * 10}<small>점</small></strong><div className="result-emoji">{emoji}</div><h1>{name}</h1><p className="result-description">{description}</p><button className="save-result-button" onClick={() => downloadResultImage({ title: '2026 트렌드 고사', result: name, description: `${score * 10}점 · ${description}`, emoji, accent: color })}>결과 이미지 저장</button><button className="reset-button" onClick={reset}>다시 풀기</button></section>; }
+  if (done) { const [name, description, emoji, color] = resultFor(score); return <section className="quiz-panel result-panel"><p className="result-overline">2026 트렌드 점수</p><strong className="elapsed-time">{score * 10}<small>점</small></strong><div className="result-emoji">{emoji}</div><h1>{name}</h1><p className="result-description">{description}</p><button className="save-result-button" onClick={() => downloadResultImage({ title: '2026 트렌드 고사', result: name, description: `${score * 10}점 · ${description}`, emoji, accent: color })}>결과 이미지 저장</button><TestShareButton title="2026 트렌드 고사" /><button className="reset-button" onClick={reset}>다시 풀기</button></section>; }
   const question = questions[index]; return <section className="quiz-panel question-panel"><div className="progress-row"><span>{index + 1} / {questions.length}</span><span>{Math.round(((index + 1) / questions.length) * 100)}%</span></div><div className="progress"><span style={{ width: `${((index + 1) / questions.length) * 100}%` }} /></div><p className="question-number">2026 TREND {String(index + 1).padStart(2, '0')}</p><h1>{question[0]}</h1><div className="answer-list">{question[1].map((option, choice) => <button key={option} onClick={() => answer(choice)}><b>{choice + 1}</b>{option}</button>)}</div></section>;
 }

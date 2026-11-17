@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { downloadResultImage } from '../../../lib/download-result';
+import TestShareButton from '../../../components/test-share-button';
 
 type Destination = { name: string; country: string; image: string; tagline: string };
 
@@ -30,7 +31,6 @@ export default function TravelWorldCup() {
   const [index, setIndex] = useState(0);
   const [winners, setWinners] = useState<Destination[]>([]);
   const [champion, setChampion] = useState<Destination | null>(null);
-  const [copied, setCopied] = useState(false);
 
   const roundName = round.length === 2 ? '결승' : `${round.length}강`;
 
@@ -41,13 +41,7 @@ export default function TravelWorldCup() {
     setRound(nextWinners); setWinners([]); setIndex(0);
   }
 
-  function reset() { setStarted(false); setRound(destinations); setIndex(0); setWinners([]); setChampion(null); setCopied(false); }
-
-  async function share() {
-    if (!champion) return;
-    const text = `나의 여행지 이상형은 ${champion.name}!`;
-    try { if (navigator.share) await navigator.share({ title: '여행지 이상형 월드컵', text, url: window.location.href }); else { await navigator.clipboard.writeText(`${text} ${window.location.href}`); setCopied(true); } } catch { /* 공유 취소 */ }
-  }
+  function reset() { setStarted(false); setRound(destinations); setIndex(0); setWinners([]); setChampion(null); }
 
   if (!started) return <section className="worldcup-intro">
     <div className="intro-versus"><span>🏖️</span><b>VS</b><span>🏙️</span></div><p>IDEAL WORLD CUP</p><h1>여행지 이상형 월드컵</h1>
@@ -59,7 +53,7 @@ export default function TravelWorldCup() {
     <p>나의 최종 여행지</p><div className="champion-art" style={{ backgroundImage: `url(${champion.image})` }} />
     <small>{champion.country}</small><h1>{champion.name}</h1><h2>{champion.tagline}</h2>
     <button className="save-result-button" onClick={() => downloadResultImage({ title: '여행지 이상형 월드컵', result: champion.name, description: champion.tagline, emoji: '✈️' })}>결과 이미지 저장</button>
-    <button className="quiz-button" onClick={share}>{copied ? '결과가 복사됐어요!' : '결과 공유하기'}</button><button className="reset-button" onClick={reset}>다시 하기</button>
+    <TestShareButton title="여행지 이상형 월드컵" /><button className="reset-button" onClick={reset}>다시 하기</button>
   </section>;
 
   const pair = [round[index], round[index + 1]];

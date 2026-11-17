@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import NextImage from 'next/image';
 import celebrityData from '../../../data/celebrity-embeddings.json';
 import { downloadResultImage } from '../../../lib/download-result';
+import TestShareButton from '../../../components/test-share-button';
 
 type GenderChoice = 'female' | 'male' | 'all';
 type CelebrityRecord = { name: string; image: string; embedding: number[] };
@@ -78,7 +79,6 @@ export default function CelebrityLookalike() {
   const [gender, setGender] = useState<GenderChoice>('female');
   const [analyzing, setAnalyzing] = useState(false);
   const [error, setError] = useState('');
-  const [copied, setCopied] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const result = matches[0];
 
@@ -108,17 +108,8 @@ export default function CelebrityLookalike() {
 
   function reset() {
     if (preview) URL.revokeObjectURL(preview);
-    setPreview(null); setMatches([]); setAnalyzing(false); setCopied(false); setError('');
+    setPreview(null); setMatches([]); setAnalyzing(false); setError('');
     if (fileRef.current) fileRef.current.value = '';
-  }
-
-  async function share() {
-    if (!result) return;
-    const text = `나와 가장 닮은 유명인은 ${result.name}!`;
-    try {
-      if (navigator.share) await navigator.share({ title: '닮은 유명인 찾기', text, url: window.location.href });
-      else { await navigator.clipboard.writeText(`${text} ${window.location.href}`); setCopied(true); }
-    } catch { /* 공유 취소 */ }
   }
 
   if (result && preview) return <section className="lookalike-result">
@@ -129,7 +120,7 @@ export default function CelebrityLookalike() {
       {matches.map((match, index) => <div key={match.name}><b>{index + 1}</b><NextImage src={match.image} alt="" width={54} height={54} unoptimized /><strong>{match.name}</strong><span>{Math.round(match.similarity * 100)}%</span></div>)}
     </div>
     <button className="save-result-button" onClick={() => downloadResultImage({ title: '당신과 닮은 유명인 찾기', result: result.name, description: `얼굴 유사도 ${Math.round(result.similarity * 100)}%`, emoji: '✨', accent: '#ff716f', photo: result.image })}>결과 이미지 저장</button>
-    <button className="quiz-button" onClick={share}>{copied ? '결과가 복사됐어요!' : '결과 공유하기'}</button>
+    <TestShareButton title="당신과 닮은 유명인 찾기" />
     <button className="reset-button" onClick={reset}>다른 사진으로 다시 하기</button>
   </section>;
 

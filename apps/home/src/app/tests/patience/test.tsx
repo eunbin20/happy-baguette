@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { downloadResultImage } from '../../../lib/download-result';
+import TestShareButton from '../../../components/test-share-button';
 
 type Result = { emoji: string; name: string; message: string; color: string };
 
@@ -19,13 +20,11 @@ export default function PatienceTest() {
   const finished = useRef(false);
   const [elapsed, setElapsed] = useState<number | null>(null);
   const [run, setRun] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     startedAt.current = performance.now();
     finished.current = false;
     setElapsed(null);
-    setCopied(false);
   }, [run]);
 
   const finish = useCallback(() => {
@@ -41,16 +40,6 @@ export default function PatienceTest() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [finish]);
-
-  async function share() {
-    if (elapsed === null) return;
-    const result = getResult(elapsed);
-    const text = `나는 로딩 화면을 ${elapsed.toFixed(2)}초 만에 눌렀다! 결과는 '${result.name}'`;
-    try {
-      if (navigator.share) await navigator.share({ title: '나의 인내심 테스트', text, url: window.location.href });
-      else { await navigator.clipboard.writeText(`${text} ${window.location.href}`); setCopied(true); }
-    } catch { /* 공유 취소 */ }
-  }
 
   if (elapsed === null) {
     return <section
@@ -72,7 +61,7 @@ export default function PatienceTest() {
     <div className="result-emoji">{result.emoji}</div><h1>{result.name}</h1>
     <p className="result-description">{result.message}</p>
     <button className="save-result-button" onClick={() => downloadResultImage({ title: '나의 인내심 테스트', result: result.name, description: `${elapsed.toFixed(2)}초 만에 화면을 터치했어요`, emoji: result.emoji, accent: result.color })}>결과 이미지 저장</button>
-    <button className="quiz-button" onClick={share}>{copied ? '결과가 복사됐어요!' : '결과 공유하기'}</button>
+    <TestShareButton title="나의 인내심 테스트" />
     <button className="reset-button" onClick={() => setRun((value) => value + 1)}>다시 측정하기</button>
   </section>;
 }

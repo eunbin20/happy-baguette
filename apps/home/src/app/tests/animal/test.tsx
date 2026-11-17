@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { downloadResultImage } from '../../../lib/download-result';
+import TestShareButton from '../../../components/test-share-button';
 
 type AnimalKey = 'dog' | 'cat' | 'fox' | 'bear';
 type Scores = Record<AnimalKey, number>;
@@ -64,7 +65,6 @@ export default function AnimalTest() {
   const [index, setIndex] = useState(0);
   const [scores, setScores] = useState<Scores>(initialScores);
   const [result, setResult] = useState<AnimalKey | null>(null);
-  const [copied, setCopied] = useState(false);
 
   function answer(points: Partial<Scores>) {
     const next = { ...scores };
@@ -75,15 +75,7 @@ export default function AnimalTest() {
     } else { setScores(next); setIndex(index + 1); }
   }
 
-  function reset() { setStarted(false); setIndex(0); setScores(initialScores()); setResult(null); setCopied(false); }
-
-  async function share() {
-    const data = { title: '내가 동물이라면?', text: `나는 ${result ? results[result].name : '어떤 동물'}! 당신도 테스트해보세요.`, url: window.location.href };
-    try {
-      if (navigator.share) await navigator.share(data);
-      else { await navigator.clipboard.writeText(window.location.href); setCopied(true); }
-    } catch { /* 공유 취소 */ }
-  }
+  function reset() { setStarted(false); setIndex(0); setScores(initialScores()); setResult(null); }
 
   if (result) {
     const animal = results[result];
@@ -92,7 +84,7 @@ export default function AnimalTest() {
       <h1>{animal.name}</h1><h2>{animal.title}</h2><p className="result-description">{animal.description}</p>
       <div className="trait-list">{animal.traits.map((trait) => <span key={trait}>#{trait}</span>)}</div>
       <button className="save-result-button" onClick={() => downloadResultImage({ title: '내가 동물이라면?', result: animal.name, description: animal.title, emoji: animal.emoji })}>결과 이미지 저장</button>
-      <button className="quiz-button" onClick={share}>{copied ? '링크가 복사됐어요!' : '결과 공유하기'}</button>
+      <TestShareButton title="내가 동물이라면?" />
       <button className="reset-button" onClick={reset}>다시 해보기</button>
     </section>;
   }
