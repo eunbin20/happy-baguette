@@ -20,7 +20,7 @@ export default function MbtiIndexPage() {
         <Link className="active" href="/">재밌는 글</Link>
         <Link href="/tests/">재밌는 테스트</Link>
       </nav>
-      <nav className="article-categories" aria-label="글 카테고리"><Link className="active" href="/mbti/">MBTI 연애</Link><Link href="/mbti/compatibility/">MBTI 궁합</Link><Link href="/dream/">꿈해몽</Link></nav>
+      <nav className="article-categories" aria-label="글 카테고리"><Link className="active" href="/mbti/">MBTI 연애</Link><Link href="/mbti/compatibility/">MBTI 궁합</Link><Link href="/mbti/reunion/">MBTI 재회</Link><Link href="/dream/">꿈해몽</Link></nav>
 
       <div className="board-title">
         <h1>MBTI별 찐사랑 특징</h1>

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getMbtiCompatibility, mbtiCompatibility } from '../../../../lib/mbti-compatibility';
 import { absoluteUrl } from '../../../../lib/site';
 import { articleJsonLd, breadcrumbJsonLd, defaultShareImage } from '../../../../lib/seo';
+import RelatedPosts from '../../../../components/related-posts';
 
 type Props = { params: Promise<{ type: string }> };
 export function generateStaticParams() { return mbtiCompatibility.map((item) => ({ type: item.type.toLowerCase() })); }
@@ -30,6 +31,7 @@ export default async function CompatibilityPage({ params }: Props) {
         <h2>{item.type}와 오래 만나려면</h2><p>{item.advice}</p>
         <p>결국 좋은 궁합은 원래 잘 맞는 두 사람이 아니라, 다른 점을 알게 된 뒤에도 상대가 이해할 수 있는 방식으로 표현하는 두 사람에 더 가깝다.</p>
       </div>
+      <RelatedPosts currentPath={path} />
       <nav className="love-related"><Link href="/mbti/compatibility/">16개 궁합 전체 보기</Link><Link href={`/mbti/${item.type.toLowerCase()}/love-signs/`}>{item.type} 찐사랑 특징 →</Link></nav>
     </article>
   </main>;

@@ -326,6 +326,16 @@ textarea::placeholder {
 }
 .save-result-button { display: block; width: 100%; margin: 18px 0 8px; padding: 13px 18px; border: 2px solid #211d24; border-radius: 7px; background: #fff; color: #211d24; font-weight: 900; cursor: pointer; box-shadow: 3px 3px 0 #211d24; }
 .save-result-button:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #211d24; }
+.related-posts { margin: 50px 0 10px; padding: 24px 0 0; border: 0; border-top: 4px solid #211d24; background: transparent; }
+.related-posts h2 { margin: 0 0 12px; font-size: 25px; }
+.related-posts a { display: flex; justify-content: space-between; gap: 15px; padding: 15px 4px; border-bottom: 1px solid #cbc4c8; color: #211d24; text-decoration: none; }
+.related-posts a span { font-weight: 800; }.related-posts a b { flex: 0 0 auto; color: #e14f69; font-size: 12px; }
+.reunion-form label,.salary-checker label { display: grid; grid-template-columns: 1fr 1.4fr; align-items: center; gap: 12px; margin: 12px 0; font-weight: 800; text-align: left; }
+.reunion-form select,.salary-checker select,.salary-checker input { width: 100%; padding: 12px; border: 2px solid #211d24; background: #fff; font: inherit; }
+.result-related { margin: 25px 0; padding: 18px; background: #fff3a8; border: 2px solid #211d24; text-align: left; }
+.result-related h2 { font-size: 19px; }.result-related a { display: block; margin: 12px 0; color: #211d24; font-weight: 800; }
+.salary-checker { margin: 25px 0; padding: 25px; background: #fff3a8; border: 3px solid #211d24; }
+.salary-checker label { position: relative; }.salary-checker label>span { position: absolute; right: 12px; }.salary-checker div { margin-top: 20px; padding-top: 18px; border-top: 2px solid #211d24; }.salary-checker div b,.salary-checker div strong { display:block; }.salary-checker div strong { margin:8px 0;font-size:32px; }
 .notice {
   min-height: 24px;
   font-size: 14px;

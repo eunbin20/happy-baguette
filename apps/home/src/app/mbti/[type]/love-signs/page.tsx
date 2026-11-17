@@ -6,6 +6,7 @@ import { getMbtiLoveExtra } from '../../../../lib/mbti-love-extras';
 import { getMbtiLoveDeep } from '../../../../lib/mbti-love-deep';
 import { absoluteUrl } from '../../../../lib/site';
 import { articleJsonLd, breadcrumbJsonLd, defaultShareImage } from '../../../../lib/seo';
+import RelatedPosts from '../../../../components/related-posts';
 
 type PageProps = { params: Promise<{ type: string }> };
 
@@ -95,6 +96,7 @@ export default async function MbtiLovePage({ params }: PageProps) {
           <p>그래서 어떻게 다가가야 하냐면, {post.move}</p>
           <p>결국 한 가지 행동보다 나한테만 꾸준히 달라지는지를 보면 된다. 관심 없는 사람에게 계속 시간과 에너지를 쓰는 사람은 생각보다 많지 않으니까.</p>
         </div>
+        <RelatedPosts currentPath={path} />
 
         <nav className="love-related">
           <Link href="/mbti/">16개 유형 전체 보기</Link>
