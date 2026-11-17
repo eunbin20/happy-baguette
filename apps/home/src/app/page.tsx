@@ -6,7 +6,6 @@ export const metadata: Metadata = { alternates: { canonical: absoluteUrl('/') } 
 
 const posts = [
   { href: '/mbti/infp/love-signs/', title: 'INFP가 진짜 사랑에 빠지면 생기는 일', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=88', label: 'INFP' },
-  { href: '/tests/reunion-chance/', title: '우리 다시 만날 수 있을까? 재회 확률 계산기', image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=88', label: '재회' },
   { href: '/posts/naturally-attractive-woman/', title: '남자가 자연스럽게 반하게 되는 여자', image: 'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=88', label: '연애' },
   { href: '/posts/salary-by-age/', title: '내 연봉, 또래보다 높은 걸까?', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=88', label: '연봉' },
   { href: '/posts/womens-height-ranking/', title: '남자들이 좋아하는 여자 키 순위', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=88', label: '연애' },
