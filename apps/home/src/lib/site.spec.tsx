@@ -10,7 +10,7 @@ it('uses the confirmed production domain when the build variable is missing', as
   const { absoluteUrl } = await import('./site');
   const { default: sitemap } = await import('../app/sitemap');
   expect(absoluteUrl('/')).toBe('https://happybaguette.com/');
-  expect(sitemap()).toHaveLength(47);
+  expect(sitemap()).toHaveLength(92);
 });
 
 it('uses the production origin consistently for canonical, robots and sitemap', async () => {
@@ -22,13 +22,15 @@ it('uses the production origin consistently for canonical, robots and sitemap', 
     'https://example.com/tests/animal/',
   );
   const urls = sitemap().map((entry) => entry.url);
-  expect(urls).toHaveLength(47);
+  expect(urls).toHaveLength(92);
   expect(urls).toEqual(expect.arrayContaining([
     'https://example.com/',
     'https://example.com/mbti/infp/love-signs/',
     'https://example.com/mbti/infp/compatibility/',
     'https://example.com/dream/',
     'https://example.com/dream/snake/',
+    'https://example.com/dream/traffic-accident/',
+    'https://example.com/tests/trend-2026/',
   ]));
   expect(robots().sitemap).toBe('https://example.com/sitemap.xml');
 });

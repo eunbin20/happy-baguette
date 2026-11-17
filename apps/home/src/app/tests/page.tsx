@@ -13,6 +13,7 @@ const tests = [
   { href: '/tests/patience/', title: '나의 인내심 테스트', image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=900&q=88' },
   { href: '/tests/travel-worldcup/', title: '여행지 이상형 월드컵', image: 'https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=88' },
   { href: '/tests/celebrity-lookalike/', title: '당신과 닮은 유명인 찾기', image: 'https://img.sbs.co.kr/newsnet/etv/upload/2025/05/23/30000993477_1280.jpg' },
+  { href: '/tests/trend-2026/', title: '2026 트렌드 고사', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=88' },
 ];
 
 export default function TestsPage() {

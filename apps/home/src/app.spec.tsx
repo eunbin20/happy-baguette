@@ -16,4 +16,5 @@ it('links to every published test without revealing the patience mechanic', () =
   expect(screen.getByRole('link', { name: /나의 인내심 테스트/ })).toHaveAttribute('href', '/tests/patience');
   expect(screen.getByRole('link', { name: /여행지 이상형 월드컵/ })).toHaveAttribute('href', '/tests/travel-worldcup');
   expect(screen.getByRole('link', { name: /당신과 닮은 유명인 찾기/ })).toHaveAttribute('href', '/tests/celebrity-lookalike');
+  expect(screen.getByRole('link', { name: /2026 트렌드 고사/ })).toHaveAttribute('href', '/tests/trend-2026');
 });

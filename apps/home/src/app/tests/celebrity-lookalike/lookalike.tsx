@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import NextImage from 'next/image';
+import { downloadResultImage } from '../../../lib/download-result';
 
 type StarResult = { name: string; keyword: string; emoji: string; description: string; traits: string[]; color: string };
 
@@ -57,6 +58,7 @@ export default function CelebrityLookalike() {
     <p>나의 닮은꼴 연예인은</p><div className="result-photo"><NextImage src={preview} alt="선택한 사진 미리보기" width={420} height={420} unoptimized /><span style={{ background: result.color }}>{result.emoji}</span></div>
     <small>{result.keyword}</small><h1>{result.name}</h1><p className="star-description">{result.description}</p>
     <div className="trait-list">{result.traits.map((trait) => <span key={trait}>#{trait}</span>)}</div>
+    <button className="save-result-button" onClick={() => downloadResultImage({ title: '당신과 닮은 유명인 찾기', result: result.name, description: result.keyword, emoji: result.emoji, accent: result.color, photo: preview })}>결과 이미지 저장</button>
     <button className="quiz-button" onClick={share}>{copied ? '결과가 복사됐어요!' : '결과 공유하기'}</button><button className="reset-button" onClick={reset}>다른 사진으로 다시 하기</button>
   </section>;
 

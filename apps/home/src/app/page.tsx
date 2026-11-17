@@ -10,7 +10,7 @@ const posts = [
   { href: '/mbti/entp/compatibility/', title: 'ENTP 연애 궁합 잘 맞는 유형은?', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=88', label: '궁합' },
   { href: '/dream/teeth-falling/', title: '이빨 빠지는 꿈이 계속 신경 쓰인다면', image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
   { href: '/mbti/intj/love-signs/', title: 'INTJ가 자기 계획에 나를 넣었다', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=88', label: 'INTJ' },
-  { href: '/dream/ex-lover/', title: '전 애인이 꿈에 나온 진짜 이유', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
+  { href: '/dream/traffic-accident/', title: '교통사고 꿈, 실제 사고의 징조일까?', image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
   { href: '/mbti/isfj/compatibility/', title: 'ISFJ와 오래 만나는 사람들의 공통점', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=88', label: '궁합' },
   { href: '/dream/', title: '어젯밤 꾼 꿈 의미 전부 찾아보기', image: 'https://images.unsplash.com/photo-1511295742362-92c96b1cf484?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
 ];

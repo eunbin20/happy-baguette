@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadResultImage } from '../../../lib/download-result';
 
 type AnimalKey = 'dog' | 'cat' | 'fox' | 'bear';
 type Scores = Record<AnimalKey, number>;
@@ -90,6 +91,7 @@ export default function AnimalTest() {
       <p className="result-overline">나의 동물 캐릭터는</p><div className="result-emoji" aria-hidden="true">{animal.emoji}</div>
       <h1>{animal.name}</h1><h2>{animal.title}</h2><p className="result-description">{animal.description}</p>
       <div className="trait-list">{animal.traits.map((trait) => <span key={trait}>#{trait}</span>)}</div>
+      <button className="save-result-button" onClick={() => downloadResultImage({ title: '내가 동물이라면?', result: animal.name, description: animal.title, emoji: animal.emoji })}>결과 이미지 저장</button>
       <button className="quiz-button" onClick={share}>{copied ? '링크가 복사됐어요!' : '결과 공유하기'}</button>
       <button className="reset-button" onClick={reset}>다시 해보기</button>
     </section>;

@@ -324,6 +324,8 @@ textarea::placeholder {
   border-radius: 8px;
   padding: 10px 22px;
 }
+.save-result-button { display: block; width: 100%; margin: 18px 0 8px; padding: 13px 18px; border: 2px solid #211d24; border-radius: 7px; background: #fff; color: #211d24; font-weight: 900; cursor: pointer; box-shadow: 3px 3px 0 #211d24; }
+.save-result-button:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #211d24; }
 .notice {
   min-height: 24px;
   font-size: 14px;

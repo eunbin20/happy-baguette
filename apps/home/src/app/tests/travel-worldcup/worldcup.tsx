@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadResultImage } from '../../../lib/download-result';
 
 type Destination = { name: string; country: string; image: string; tagline: string };
 
@@ -57,6 +58,7 @@ export default function TravelWorldCup() {
   if (champion) return <section className="champion-panel">
     <p>나의 최종 여행지</p><div className="champion-art" style={{ backgroundImage: `url(${champion.image})` }} />
     <small>{champion.country}</small><h1>{champion.name}</h1><h2>{champion.tagline}</h2>
+    <button className="save-result-button" onClick={() => downloadResultImage({ title: '여행지 이상형 월드컵', result: champion.name, description: champion.tagline, emoji: '✈️' })}>결과 이미지 저장</button>
     <button className="quiz-button" onClick={share}>{copied ? '결과가 복사됐어요!' : '결과 공유하기'}</button><button className="reset-button" onClick={reset}>다시 하기</button>
   </section>;
 
