@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'MBTI별 연애 궁합', description:
 export default function CompatibilityIndex() {
   return <main className="mbti-board">
     <header className="feed-header"><Link className="logo" href="/"><span>happy baguette</span></Link><span className="header-note">MBTI 궁합</span></header>
-    <nav className="article-categories"><Link href="/mbti/">MBTI 연애</Link><Link className="active" href="/mbti/compatibility/">MBTI 궁합</Link><Link href="/dream/">꿈해몽</Link></nav>
+    <nav className="article-categories"><Link className="active" href="/">관계와 마음</Link></nav>
     <div className="board-title"><h1>MBTI별 연애 궁합</h1><p>잘 맞는 이유와 자주 싸우는 지점</p></div>
     <div className="board-list">
       <div className="board-labels"><span>유형</span><span>한 줄 궁합</span><span>글</span></div>

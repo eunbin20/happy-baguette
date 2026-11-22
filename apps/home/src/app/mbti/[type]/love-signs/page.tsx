@@ -7,6 +7,8 @@ import { getMbtiLoveDeep } from '../../../../lib/mbti-love-deep';
 import { absoluteUrl } from '../../../../lib/site';
 import { articleJsonLd, breadcrumbJsonLd, defaultShareImage } from '../../../../lib/seo';
 import RelatedPosts from '../../../../components/related-posts';
+import ArticleCredit from '../../../../components/article-credit';
+import ArticleHeroImage from '../../../../components/article-hero-image';
 
 type PageProps = { params: Promise<{ type: string }> };
 
@@ -53,7 +55,9 @@ export default async function MbtiLovePage({ params }: PageProps) {
           <span className="love-kicker">LOVE SIGNAL · {post.type}</span>
           <h1>{post.type}가 진짜<br />좋아할 때 하는 행동</h1>
           <strong>{post.hook}</strong>
+          <ArticleCredit />
         </section>
+        <ArticleHeroImage alt={`${post.type} 연애 특징 대표 이미지`} />
 
         <div className="ramble-copy">
           <p>{post.intro}</p>

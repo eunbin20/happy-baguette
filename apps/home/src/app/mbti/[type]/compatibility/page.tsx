@@ -5,6 +5,8 @@ import { getMbtiCompatibility, mbtiCompatibility } from '../../../../lib/mbti-co
 import { absoluteUrl } from '../../../../lib/site';
 import { articleJsonLd, breadcrumbJsonLd, defaultShareImage } from '../../../../lib/seo';
 import RelatedPosts from '../../../../components/related-posts';
+import ArticleCredit from '../../../../components/article-credit';
+import ArticleHeroImage from '../../../../components/article-hero-image';
 
 type Props = { params: Promise<{ type: string }> };
 export function generateStaticParams() { return mbtiCompatibility.map((item) => ({ type: item.type.toLowerCase() })); }
@@ -21,7 +23,8 @@ export default async function CompatibilityPage({ params }: Props) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: '홈', path: '/' }, { name: 'MBTI 궁합', path: '/mbti/compatibility/' }, { name: item.type, path }])) }} />
     <header className="mbti-header"><Link className="logo" href="/"><span>happy baguette</span></Link><Link href="/mbti/compatibility/">궁합 전체</Link></header>
     <article className="ramble-post compatibility-post">
-      <div className="plain-post-title"><span>MBTI 궁합</span><h1>{item.type} 연애 궁합</h1><strong>{item.hook}</strong></div>
+      <div className="plain-post-title"><span>MBTI 궁합</span><h1>{item.type} 연애 궁합</h1><strong>{item.hook}</strong><ArticleCredit /></div>
+      <ArticleHeroImage alt={`${item.type} 연애 궁합 대표 이미지`} />
       <div className="ramble-copy">
         <p>{item.type}는 연애할 때 자기만의 속도와 기준이 꽤 분명한 편이다. 그래서 단순히 성격이 비슷한 사람보다 서로의 부족한 부분을 편하게 채워주는 사람과 만났을 때 관계가 오래 간다.</p>
         <h2>잘 맞는 궁합: {item.best.join(', ')}</h2><p>{item.good}</p>

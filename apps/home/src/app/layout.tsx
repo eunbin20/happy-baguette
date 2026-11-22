@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import '../styles.css';
 import { siteUrl } from '../lib/site';
 import { defaultShareImage } from '../lib/seo';
+import SitePolicyFooter from '../components/site-policy-footer';
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   publisher: 'happy baguette',
   keywords: ['MBTI', 'MBTI 연애', 'MBTI 궁합', '꿈해몽', '심리테스트', '이상형 월드컵'],
   category: 'entertainment',
+  other: { 'google-adsense-account': 'ca-pub-5635541147972856' },
   referrer: 'origin-when-cross-origin',
   robots: {
     index: true,
@@ -52,6 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <SitePolicyFooter />
       </body>
     </html>
   );

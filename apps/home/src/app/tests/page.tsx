@@ -26,6 +26,7 @@ export default function TestsPage() {
     <nav className="feed-tabs" aria-label="콘텐츠 종류">
       <Link href="/">재밌는 글</Link>
       <Link className="active" href="/tests/">재밌는 테스트</Link>
+      <Link href="/photobook/">포토보드 만들기</Link>
     </nav>
     <div className="test-feed-grid">
       {tests.map((test) => <Link className="test-feed-card" href={test.href} key={test.title}>

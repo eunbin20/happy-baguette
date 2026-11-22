@@ -5,6 +5,7 @@ import { absoluteUrl } from '../lib/site';
 export const metadata: Metadata = { alternates: { canonical: absoluteUrl('/') } };
 
 const posts = [
+  { href: '/posts/mbti-crush-behavior/', title: 'MBTI별 좋아하는 사람 앞 행동', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=88', label: 'MBTI' },
   { href: '/mbti/infp/love-signs/', title: 'INFP가 진짜 사랑에 빠지면 생기는 일', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=88', label: 'INFP' },
   { href: '/posts/naturally-attractive-woman/', title: '남자가 자연스럽게 반하게 되는 여자', image: 'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=88', label: '연애' },
   { href: '/posts/salary-by-age/', title: '내 연봉, 또래보다 높은 걸까?', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=88', label: '연봉' },
@@ -33,9 +34,10 @@ export default function Home() {
       <nav className="feed-tabs" aria-label="콘텐츠 종류">
         <Link className="active" href="/">재밌는 글</Link>
         <Link href="/tests/">재밌는 테스트</Link>
+        <Link href="/photobook/">포토보드 만들기</Link>
       </nav>
       <nav className="article-categories" aria-label="글 카테고리">
-        <Link href="/mbti/">MBTI 연애</Link><Link href="/mbti/compatibility/">MBTI 궁합</Link><Link href="/mbti/reunion/">MBTI 재회</Link><Link href="/dream/">꿈해몽</Link>
+        <Link className="active" href="/">관계와 마음</Link>
       </nav>
       <div className="feed-search" aria-hidden="true"><span>⌕</span> 궁금한 MBTI를 찾아보세요</div>
       <div className="click-grid post-feed">

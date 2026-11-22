@@ -5,6 +5,7 @@ import { dreamPosts, getDreamPost } from '../../../lib/dream-posts';
 import { absoluteUrl } from '../../../lib/site';
 import { articleJsonLd, breadcrumbJsonLd } from '../../../lib/seo';
 import RelatedPosts from '../../../components/related-posts';
+import ArticleCredit from '../../../components/article-credit';
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return dreamPosts.map((post) => ({ slug: post.slug })); }
@@ -15,7 +16,7 @@ export default async function DreamPage({ params }: Props) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd({ title: post.title, description: post.hook, path, image: post.image, section: '꿈해몽' })) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: '홈', path: '/' }, { name: '꿈해몽', path: '/dream/' }, { name: post.title, path }])) }} />
     <header className="mbti-header"><Link className="logo" href="/"><span>happy baguette</span></Link><Link href="/dream/">꿈해몽 전체</Link></header>
-    <article className="ramble-post"><div className="dream-cover"><img src={post.image} alt={post.title} /><span>꿈해몽</span><h1>{post.title}</h1><strong>{post.hook}</strong></div>
+    <article className="ramble-post"><div className="dream-cover"><img src={post.image} alt={post.title} /><span>꿈해몽</span><h1>{post.title}</h1><strong>{post.hook}</strong><ArticleCredit /></div>
       <div className="ramble-copy"><p>{post.intro}</p>{post.cases.map((item) => <div className="ramble-bit" key={item.title}><h2>{item.title}</h2><p>{item.body}</p></div>)}<p>{post.ending}</p>
       </div>
       <RelatedPosts currentPath={path} title="꿈을 꾼 뒤 함께 읽어보세요" />
