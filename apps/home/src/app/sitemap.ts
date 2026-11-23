@@ -5,6 +5,7 @@ import { mbtiCompatibility } from '../lib/mbti-compatibility';
 import { dreamPosts } from '../lib/dream-posts';
 import { mbtiReunionPosts } from '../lib/mbti-reunion';
 import { contentUpdatedAt } from '../lib/seo';
+import { enfpWomanCompatibilityPosts } from '../lib/enfp-woman-compatibility';
 
 export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -39,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     })),
     ...mbtiCompatibility.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
+    ...enfpWomanCompatibilityPosts.map((post) => ({ path: `/mbti/enfp-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 })),
     ...mbtiReunionPosts.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/reunion/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
     ...dreamPosts.map((post) => ({ path: `/dream/${post.slug}/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
   ];
