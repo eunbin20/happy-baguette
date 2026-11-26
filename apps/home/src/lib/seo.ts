@@ -1,6 +1,6 @@
 import { absoluteUrl } from './site';
 
-export const contentUpdatedAt = new Date('2026-11-26T00:00:00+09:00');
+export const contentUpdatedAt = new Date('2026-11-27T00:00:00+09:00');
 export const defaultShareImage = 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=88';
 
 type ArticleSeo = { title: string; description: string; path: string; image?: string; section: string };

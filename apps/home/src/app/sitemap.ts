@@ -11,6 +11,7 @@ import { additionalWomanCompatibilitySeries } from '../lib/infj-entp-intj-woman-
 import { isxxWomanCompatibilitySeries } from '../lib/isxx-woman-compatibility';
 import { ixepWomanCompatibilitySeries } from '../lib/ixep-woman-compatibility';
 import { ejxWomanCompatibilitySeries } from '../lib/ejx-woman-compatibility';
+import { mbtiCelebrityPosts } from '../lib/mbti-celebrities';
 
 export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -52,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ixepWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
     ...ejxWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
     ...mbtiReunionPosts.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/reunion/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
+    ...mbtiCelebrityPosts.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/celebrities/`, changeFrequency: 'monthly' as const, priority: 0.8 })),
     ...dreamPosts.map((post) => ({ path: `/dream/${post.slug}/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
   ];
   return pages.map(({ path, changeFrequency, priority }) => ({

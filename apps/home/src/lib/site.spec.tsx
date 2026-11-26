@@ -10,7 +10,7 @@ it('uses the confirmed production domain when the build variable is missing', as
   const { absoluteUrl } = await import('./site');
   const { default: sitemap } = await import('../app/sitemap');
   expect(absoluteUrl('/')).toBe('https://happybaguette.com/');
-  expect(sitemap()).toHaveLength(377);
+  expect(sitemap()).toHaveLength(393);
 });
 
 it('uses the production origin consistently for canonical, robots and sitemap', async () => {
@@ -22,7 +22,7 @@ it('uses the production origin consistently for canonical, robots and sitemap', 
     'https://example.com/tests/animal/',
   );
   const urls = sitemap().map((entry) => entry.url);
-  expect(urls).toHaveLength(377);
+  expect(urls).toHaveLength(393);
   expect(urls).toEqual(expect.arrayContaining([
     'https://example.com/',
     'https://example.com/mbti/infp/love-signs/',
@@ -50,8 +50,18 @@ it('uses the production origin consistently for canonical, robots and sitemap', 
     'https://example.com/mbti/esfj-woman/isfj-man/compatibility/',
     'https://example.com/mbti/enfj-woman/infj-man/compatibility/',
     'https://example.com/mbti/entj-woman/intj-man/compatibility/',
+    'https://example.com/mbti/infp/celebrities/',
   ]));
   expect(robots().sitemap).toBe('https://example.com/sitemap.xml');
+});
+
+it('publishes 16 celebrity posts with at least 30 unique names each', async () => {
+  const { mbtiCelebrityPosts } = await import('./mbti-celebrities');
+  expect(mbtiCelebrityPosts).toHaveLength(16);
+  for (const post of mbtiCelebrityPosts) {
+    expect(post.names.length, post.type).toBeGreaterThanOrEqual(30);
+    expect(new Set(post.names).size, post.type).toBe(post.names.length);
+  }
 });
 
 it('rejects a deployment URL containing a path rather than emitting incorrect URLs', async () => {
