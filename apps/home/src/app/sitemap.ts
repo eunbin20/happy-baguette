@@ -5,12 +5,6 @@ import { mbtiCompatibility } from '../lib/mbti-compatibility';
 import { dreamPosts } from '../lib/dream-posts';
 import { mbtiReunionPosts } from '../lib/mbti-reunion';
 import { contentUpdatedAt } from '../lib/seo';
-import { enfpWomanCompatibilityPosts } from '../lib/enfp-woman-compatibility';
-import { infpWomanCompatibilitySeries } from '../lib/infp-woman-compatibility';
-import { additionalWomanCompatibilitySeries } from '../lib/infj-entp-intj-woman-compatibility';
-import { isxxWomanCompatibilitySeries } from '../lib/isxx-woman-compatibility';
-import { ixepWomanCompatibilitySeries } from '../lib/ixep-woman-compatibility';
-import { ejxWomanCompatibilitySeries } from '../lib/ejx-woman-compatibility';
 import { mbtiCelebrityPosts } from '../lib/mbti-celebrities';
 
 export const dynamic = 'force-static';
@@ -35,9 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/dream/', changeFrequency: 'weekly' as const, priority: 0.9 },
     { path: '/mbti/reunion/', changeFrequency: 'weekly' as const, priority: 0.9 },
     { path: '/posts/salary-by-age/', changeFrequency: 'yearly' as const, priority: 0.75 },
-    { path: '/posts/womens-height-ranking/', changeFrequency: 'yearly' as const, priority: 0.7 },
     { path: '/posts/use-dreams/', changeFrequency: 'yearly' as const, priority: 0.7 },
-    { path: '/posts/naturally-attractive-woman/', changeFrequency: 'monthly' as const, priority: 0.7 },
     { path: '/posts/secretly-popular-person/', changeFrequency: 'monthly' as const, priority: 0.7 },
     { path: '/posts/mbti-crush-behavior/', changeFrequency: 'monthly' as const, priority: 0.85 },
     ...mbtiLovePosts.map((post) => ({
@@ -46,12 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     })),
     ...mbtiCompatibility.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
-    ...enfpWomanCompatibilityPosts.map((post) => ({ path: `/mbti/enfp-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 })),
-    ...infpWomanCompatibilitySeries.posts.map((post) => ({ path: `/mbti/infp-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 })),
-    ...additionalWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
-    ...isxxWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
-    ...ixepWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
-    ...ejxWomanCompatibilitySeries.flatMap((series) => series.posts.map((post) => ({ path: `/mbti/${series.womanType.toLowerCase()}-woman/${post.manType.toLowerCase()}-man/compatibility/`, changeFrequency: 'monthly' as const, priority: 0.8 }))),
     ...mbtiReunionPosts.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/reunion/`, changeFrequency: 'monthly' as const, priority: 0.75 })),
     ...mbtiCelebrityPosts.map((post) => ({ path: `/mbti/${post.type.toLowerCase()}/celebrities/`, changeFrequency: 'monthly' as const, priority: 0.8 })),
     ...dreamPosts.map((post) => ({ path: `/dream/${post.slug}/`, changeFrequency: 'monthly' as const, priority: 0.75 })),

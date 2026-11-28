@@ -57,6 +57,8 @@ const topics: [string, string, string, string][] = [
 ];
 
 const additionalDreamPosts = [trafficAccident, ...topics.map(([slug, title, subject, meaning], index) => makeDream(slug, title, subject, meaning, index))];
-export const dreamPosts: DreamPost[] = [...baseDreamPosts, ...additionalDreamPosts];
+// Only individually written interpretations are published. The former bulk-generated
+// topic set was removed because it repeated the same structure without enough value.
+export const dreamPosts: DreamPost[] = [...baseDreamPosts, trafficAccident];
 
 export function getDreamPost(slug: string) { return dreamPosts.find((post) => post.slug === slug); }

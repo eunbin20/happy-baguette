@@ -7,9 +7,7 @@ export const metadata: Metadata = { alternates: { canonical: absoluteUrl('/') } 
 const posts = [
   { href: '/posts/mbti-crush-behavior/', title: 'MBTI별 좋아하는 사람 앞 행동', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=88', label: 'MBTI' },
   { href: '/mbti/infp/love-signs/', title: 'INFP가 진짜 사랑에 빠지면 생기는 일', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=88', label: 'INFP' },
-  { href: '/posts/naturally-attractive-woman/', title: '남자가 자연스럽게 반하게 되는 여자', image: 'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=88', label: '연애' },
   { href: '/posts/salary-by-age/', title: '내 연봉, 또래보다 높은 걸까?', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=88', label: '연봉' },
-  { href: '/posts/womens-height-ranking/', title: '남자들이 좋아하는 여자 키 순위', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=88', label: '연애' },
   { href: '/posts/secretly-popular-person/', title: '남몰래 다들 좋아하는 매력 쩌는 사람', image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=88', label: '매력' },
   { href: '/dream/snake/', title: '뱀 나오는 꿈, 색깔마다 뜻이 다르다', image: 'https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=900&q=88', label: '꿈해몽' },
   { href: '/mbti/entp/compatibility/', title: 'ENTP 연애 궁합 잘 맞는 유형은?', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=900&q=88', label: '궁합' },
